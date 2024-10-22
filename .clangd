@@ -1,0 +1,15 @@
+CompileFlags:
+  Add:
+    - -I/home/akio/code/dev/websocket-server/vendor
+
+# Diagnostics:
+#   Suppress:
+#     - '*'
+
+InlayHints:
+  Enabled: No
+  BlockEnd: No
+  Designators: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+  TypeNameLimit: 24
