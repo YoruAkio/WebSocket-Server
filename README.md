@@ -53,6 +53,13 @@ c.connect(con);
 c.run();
 ```
 
+## Contact
+
+If you have any questions or suggestions, feel free to contact me at:
+
+- Discord: [@yoruakio](https://discord.com/users/919841186246692886)
+- Telegram: [@yoruakio](https://t.me/yoruakio) or [HTF](https://t.me/htf_public)
+
 ## LICENSE
 
 WebSocket-Server is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.

@@ -6,6 +6,7 @@
 #include <atomic>
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
+#include <nlohmann/json.hpp>
 #include <unordered_map>
 #include <iostream>
 #include <chrono>
@@ -118,7 +119,17 @@ public:
 
             client_info.message_count++;
 
-            std::cout << "Received message: " << msg->get_payload() << std::endl;
+            nlohmann::json received_data;
+            try {
+                received_data = nlohmann::json::parse(msg->get_payload());
+            } catch (nlohmann::json::parse_error& e) {
+                std::cout << "Received message: " << msg->get_payload() << std::endl;
+                std::cerr << "Failed to parse message as JSON: " << e.what() << std::endl;
+                ws_server->close(hdl, websocketpp::close::status::invalid_payload, "Invalid JSON");
+                return;
+            }
+
+            std::cout << "Received JSON data: " << received_data.dump(4) << std::endl;
 
             ws_server->send(hdl, msg->get_payload(), msg->get_opcode());
         });
