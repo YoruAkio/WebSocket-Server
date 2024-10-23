@@ -6,7 +6,7 @@
 #include <atomic>
 #include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
-#include <nlohmann/json.hpp>
+#include <json.hpp>
 #include <unordered_map>
 #include <iostream>
 #include <chrono>
